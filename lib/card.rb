@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
 class Card
-  attr_accessor :question, :answer, :category
+  attr_reader :question, :answer, :category
+
+  def initialize(question, answer, category)
+    @question = question
+    @answer = answer
+    @category = category
+  end
 end
