@@ -23,10 +23,18 @@ class Round
   end
 
   def number_correct_by_category(category)
-    correct = turns.select { |turn| turn.correct? && turn.category == category }
-    cards = deck.cards.select { |card| card.category == category }
-    correct / cards
+    correct = turns.select { |turn| turn.correct? && turn.card.category == category }
+    correct.length
   end
 
-  def perect_correct_by_category(category); end
+  def percent_correct
+    correct = turns.select(&:correct?)
+    (correct.length.to_f / turns.length) * 100.0
+  end
+
+  def percent_correct_by_category(category)
+    correct = turns.select { |turn| turn.correct? && turn.card.category == category }
+    cards = deck.cards.select { |card| card.category == category }
+    (correct.length / cards.length) * 100.0
+  end
 end
