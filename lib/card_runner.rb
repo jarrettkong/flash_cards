@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require './lib/card'
-require './lib/deck'
-require './lib/round'
+require_relative './card'
+require_relative './deck'
+require_relative './round'
 
 card_1 = Card.new('What is the capital of Alaska?', 'Juneau', :Geography)
 card_2 = Card.new('The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?', 'Mars', :STEM)
