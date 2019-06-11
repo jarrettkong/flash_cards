@@ -9,10 +9,11 @@ deck = Deck.new(cards)
 
 round = Round.new(deck)
 
-def start(deck, round)
+def start(round, deck)
   index = 1
   puts "Welcome! you're playing with #{deck.cards.length} card(s)!"
   puts '------------------------------------------------'
+
   while round.turns.length < deck.cards.length
     puts "This is round #{index} of #{deck.cards.length}."
     puts round.current_card.question
@@ -32,4 +33,4 @@ def game_over(round, deck)
   categories.each { |category| puts "#{category} - #{round.percent_correct_by_category(category)}% correct" }
 end
 
-start(deck, round)
+start(round, deck)
