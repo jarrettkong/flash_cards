@@ -4,10 +4,10 @@ require_relative './card_generator'
 require_relative './deck'
 require_relative './round'
 
-cards = CardGenerator.new('./lib/cards.csv').cards
-deck = Deck.new(cards)
+$cards = CardGenerator.new('./lib/cards.csv').cards
+$deck = Deck.new($cards)
 
-round = Round.new(deck)
+$round = Round.new($deck)
 
 def start(round, deck)
   index = 1
@@ -33,4 +33,4 @@ def game_over(round, deck)
   categories.each { |category| puts "#{category} - #{round.percent_correct_by_category(category)}% correct" }
 end
 
-start(round, deck)
+start($round, $deck)
