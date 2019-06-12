@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-require 'minitest/pride'
+require 'minitest/spec'
 require 'minitest/autorun'
 require './lib/card_generator'
-require './lib/card'
 
 class CardGeneratorTest < Minitest::Test
   def setup

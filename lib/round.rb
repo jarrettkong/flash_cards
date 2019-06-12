@@ -42,6 +42,7 @@ class Round
     cards = deck.cards.select do |card|
       card.category == category
     end
+
     (correct.length.to_f / cards.length * 100).to_i
   end
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'minitest/pride'
+require 'minitest/spec'
 require 'minitest/autorun'
 require './lib/card_generator'
 require './lib/deck'
@@ -74,6 +74,6 @@ class RoundTest < Minitest::Test
     round.take_turn('red panda')
     assert_equal round.percent_correct_by_category('STEM'), 100
     assert_equal round.percent_correct_by_category('Turing Staff'), 50
-    assert_equal round.percent_correct_by_category('Pop Culture'), 0
+    assert_equal round.percent_correct_by_category('PopCulture'), 0
   end
 end
