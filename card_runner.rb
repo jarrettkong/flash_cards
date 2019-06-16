@@ -1,15 +1,14 @@
 # frozen_string_literal: true
 
-require_relative './card_generator'
-require_relative './deck'
-require_relative './round'
+require './lib/card_generator'
+require './lib/deck'
+require './lib/round'
 
-$cards = CardGenerator.new('./lib/cards.csv').cards
-$deck = Deck.new($cards)
+def start
+  cards = CardGenerator.new('./lib/cards.csv').cards
+  deck = Deck.new(cards)
+  round = Round.new(deck)
 
-$round = Round.new($deck)
-
-def start(round, deck)
   index = 1
   puts "Welcome! you're playing with #{deck.cards.length} card(s)!"
   puts '------------------------------------------------'
@@ -17,7 +16,7 @@ def start(round, deck)
   while round.turns.length < deck.cards.length
     puts "This is round #{index} of #{deck.cards.length}."
     puts round.current_card.question
-    guess = gets.chomp
+    guess = gets.chomp.downcase
     result = round.take_turn(guess)
     puts result.feedback
     index += 1
@@ -33,4 +32,4 @@ def game_over(round, deck)
   categories.each { |category| puts "#{category} - #{round.percent_correct_by_category(category)}% correct" }
 end
 
-start($round, $deck)
+start
